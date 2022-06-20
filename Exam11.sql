@@ -60,23 +60,6 @@ Union All
 Select Info from Students
 --8. Procedure yazmalı - göndərilən baldan yüksək bal alan tələbələrin siyahısını göstərməlidir - 20 bal
 
-Create Procedure usp_MaxGrades
-As
-Begin
-	Declare int
-	Select COUNT(Distinct Grade) From usv_GetAllStudents where LEN(Grade) > @count
-End
 
 --9. Funksiya yazmalı - göndərilən qrup adina uyğun neçə tələbə olduğunu göstərməlidir - 20 bal
 
-Create Function usf_GetCount
-returns int
-As
-Begin
-	declare  int
-
-	Select @mycount = COUNT(Distinct FullName) From usv_GetAllStudents 
-	where LEN(FullName) > @count 
-
-	return @mycount 
-End
